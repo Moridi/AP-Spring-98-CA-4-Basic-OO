@@ -13,6 +13,8 @@ public:
 
     void add_to_queue(UserThread new_thread) noexcept;
     void remove_from_queue(int index) noexcept;
+
+    void print_thread_state();
     
 private:
     std::vector<UserThreadSharedPointer> waiting_queue;

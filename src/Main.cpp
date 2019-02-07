@@ -5,7 +5,6 @@ int main()
     ThreadLibrarySharedPointer thread_library =
             ThreadLibrary::get_instance();
     
-    thread_library->process();
-
+    thread_library->run();
     return 0;
 }

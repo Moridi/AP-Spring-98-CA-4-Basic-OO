@@ -5,4 +5,12 @@
 #error "Process-inl.h" should be included only in "Process.h" file.
 #endif
 
+#include "Process.h"
+
+#include <new>
+
+Process::Process()
+{
+}
+
 #endif
