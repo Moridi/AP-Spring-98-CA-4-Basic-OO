@@ -8,7 +8,6 @@ EXECUTABLE_FILE = ThreadLibrary.out
 
 OBJECTS = \
 	$(BUILD_DIR)/KernelThread.o\
-	$(BUILD_DIR)/CommandHandler.o\
 	$(BUILD_DIR)/KernelThreadQueue.o\
 	$(BUILD_DIR)/Process.o\
 	$(BUILD_DIR)/ThreadLibrary.o\
@@ -19,11 +18,6 @@ KernelThread = \
 	$(SRC_DIR)/KernelThread.cpp\
 	$(INCLUDE_DIR)/KernelThread.h\
 	$(INCLUDE_DIR)/KernelThread-inl.h\
-
-CommandHandler = \
-	$(SRC_DIR)/CommandHandler.cpp\
-	$(INCLUDE_DIR)/CommandHandler.h\
-	$(INCLUDE_DIR)/CommandHandler-inl.h\
 
 KernelThreadQueue = \
 	$(SRC_DIR)/KernelThreadQueue.cpp\
@@ -55,9 +49,6 @@ $(BUILD_DIR):
 
 $(BUILD_DIR)/KernelThread.o: $(KernelThread)
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/KernelThread.cpp -o $(BUILD_DIR)/KernelThread.o
-
-$(BUILD_DIR)/CommandHandler.o: $(CommandHandler) 
-	$(CC) $(CFLAGS) -c $(SRC_DIR)/CommandHandler.cpp -o $(BUILD_DIR)/CommandHandler.o
 
 $(BUILD_DIR)/KernelThreadQueue.o: $(KernelThreadQueue)
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/KernelThreadQueue.cpp -o $(BUILD_DIR)/KernelThreadQueue.o

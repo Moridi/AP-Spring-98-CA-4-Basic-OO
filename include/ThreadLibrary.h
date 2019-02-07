@@ -7,7 +7,8 @@ class ThreadLibrary
 {    
 public:
     typedef std::shared_ptr<ThreadLibrary> ThreadLibrarySharedPointer;
-    inline static ThreadLibrarySharedPointer get_instance() noexcept;
+    static ThreadLibrarySharedPointer get_instance() noexcept;
+    void process();
 
 private:
 	inline ThreadLibrary() noexcept;

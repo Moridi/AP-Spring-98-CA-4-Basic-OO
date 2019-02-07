@@ -13,11 +13,4 @@ ThreadLibrary::ThreadLibrary() noexcept
 {
 }
 
-ThreadLibrarySharedPointer ThreadLibrary::get_instance() noexcept
-{
-	if (instance == nullptr)
-		instance = std::make_shared<ThreadLibrary>(ThreadLibrary());
-	return instance;
-}
-
 #endif
