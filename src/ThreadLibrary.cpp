@@ -16,6 +16,7 @@ void ThreadLibrary::run()
 	constexpr char SHOW_STAT[] = "show_stat";
 	constexpr char ADD_KERNEL_THREAD[] = "add_kthread";
 	constexpr char SHOW_KERNEL_STAT[] = "show_kernel_stat";
+	constexpr char RUN_THREADS[] = "run_threads";
 
 	string input;
 
@@ -29,21 +30,30 @@ void ThreadLibrary::run()
 			add_kernel_thread();
 		else if (input == SHOW_KERNEL_STAT)
 			show_kernel_stat();
+		else if (input == RUN_THREADS)
+			run_kernel_threads();
 	}
+}
+
+void ThreadLibrary::run_kernel_threads()
+{
+	for (uint i = 0; i < kernel_threads.size(); ++i)
+		if (kernel_threads[i]->get_queue_size() != 0)
+			kernel_threads[i]->run_user_thread();
 }
 
 void ThreadLibrary::show_kernel_stat()
 {
-	cout << "####### KERNEL STAT" << kernel_threads.size() << " ######" << endl;
+	cout << "####### KERNEL STAT ######" << endl;
 	for (uint i = 0; i < kernel_threads.size(); ++i)
-		cout << "###### " << i << " - Number of user threads: " << kernel_threads[i]->get_queue_size() << endl;
+		kernel_threads[i]->print_thread_state();
 }
 
 void ThreadLibrary::add_kernel_thread()
 {
 	// @TODO: Get kernel thread information
-	kernel_threads.push_back(make_shared<KernelThread>(KernelThread()));
-	cout << "New kernel thread added!" << endl;
+	kernel_threads.push_back(make_shared<KernelThread>(KernelThread(thread_id++)));
+	cout << "Kernel thread added!" << endl;
 }
 
 uint ThreadLibrary::get_minimum_kthread_index()
@@ -82,21 +92,23 @@ void ThreadLibrary::add_process()
 	cout << "Please enter number of threads per process:" << endl;
 	cin >> number_of_threads;
 
-	ProcessSharedPointer new_process = make_shared<Process>(Process());
+	ProcessSharedPointer new_process = make_shared<Process>(Process(process_id++));
 	new_process->initialize_threads(number_of_threads);
 
 	assign_kthread_to_uthread(new_process);
 	processes.push_back(new_process);
+
+	cout << "Process added!" << endl;
 }
 
 void ThreadLibrary::print_processes()
 {
-	cout << "$$$$ " << kernel_threads.size() << endl;
 	for (uint i = 0; i < processes.size(); ++i)
 	{
-		cout << "###### Process - " << i << " #####" << endl;
+		cout << "###### Process ID :  " << processes[i]->get_process_id() << " #####" << endl;
 		processes[i]->print_process();
 	}
+	cout << endl;
 }
 
 ThreadLibrarySharedPointer ThreadLibrary::get_instance() noexcept
