@@ -17,6 +17,8 @@ public:
     void remove_thread(int index);
 
     void initialize_threads(int number_of_threads);
+    inline uint get_number_of_threads();
+    inline UserThreadSharedPointer get_thread(uint index);
 
     void print_process();
 

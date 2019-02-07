@@ -7,10 +7,19 @@
 
 #include "Process.h"
 
-#include <new>
-
 Process::Process()
 {
+}
+
+uint Process::get_number_of_threads()
+{
+    return threads.size();
+}
+
+Process::UserThreadSharedPointer Process::get_thread(uint index)
+{
+    // @TODO: throw in invalid size case
+    return threads[index];
 }
 
 #endif

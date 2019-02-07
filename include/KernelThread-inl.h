@@ -5,4 +5,9 @@
 #error "KernelThread-inl.h" should be included only in "KernelThread.h" file.
 #endif
 
+uint KernelThread::get_queue_size()
+{
+    return waiting_queue.size();
+}
+
 #endif
