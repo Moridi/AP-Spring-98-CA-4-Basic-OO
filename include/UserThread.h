@@ -3,6 +3,7 @@
 
 class UserThread
 {
+
 };
 
 #include "UserThread-inl.h"

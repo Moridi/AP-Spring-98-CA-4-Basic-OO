@@ -1,8 +1,21 @@
 #ifndef KERNEL_THREAD_H_
 #define KERNEL_THREAD_H_
 
+#include <vector>
+#include <memory>
+
+#include "UserThread.h"
+
 class KernelThread
 {
+public:
+    typedef std::shared_ptr<UserThread> UserThreadSharedPointer;
+
+    void add_to_queue(UserThread new_thread) noexcept;
+    void remove_from_queue(int index) noexcept;
+    
+private:
+    std::vector<UserThreadSharedPointer> waiting_queue;
 };
 
 #include "KernelThread-inl.h"
