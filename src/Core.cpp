@@ -19,7 +19,7 @@ void Core::add_to_queue(Thread* new_thread)
 
 void Core::print_core_stat()
 {
-    cout << "Core Number : " << core_id << endl;
+    cout << "Core number : " << core_id << endl;
 
     for (Thread* thread: waiting_queue)
         thread->print_thread_stat();

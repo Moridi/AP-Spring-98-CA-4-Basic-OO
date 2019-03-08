@@ -59,11 +59,12 @@ void ThreadScheduler::add_core()
 
 void ThreadScheduler::finish_tasks()
 {
-	unsigned int time_slice = 0;
+	unsigned int time_slice = 1;
 	while (is_unfinished_task_exist())
 	{
 		cout << "Time Slice : " << time_slice << endl;
 		run_cores();
+		time_slice++;
 	}
 }
 
