@@ -1,10 +1,7 @@
-#include "ThreadLibrary.h"
+#include "CommandHandler.h"
 
 int main()
-{
-    ThreadLibrarySharedPointer thread_library =
-            ThreadLibrary::get_instance();
-    
-    thread_library->run();
+{   
+    (new CommandHandler)->run();
     return 0;
 }

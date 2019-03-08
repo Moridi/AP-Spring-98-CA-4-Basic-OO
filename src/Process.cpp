@@ -2,31 +2,49 @@
 
 #include <iostream>
 
-#include "UserThread.h"
-#include "ThreadLibrary.h"
+#include "Thread.h"
+#include "ThreadScheduler.h"
 
 using namespace std;
 
-void Process::initialize_threads(int number_of_threads)
+constexpr unsigned int FIRST_ID = 1;
+
+Process::Process()
+: process_id(FIRST_ID)
+, thread_id_counter(FIRST_ID)
 {
-    ThreadLibrarySharedPointer thread_library = ThreadLibrary::get_instance();
+}
 
-    for (int i = 0; i < number_of_threads; ++i)
-    {
-        int number_of_time_slots = get_number_of_time_slots(i);
+void Process::add_thread(Thread* new_thread)
+{
+    new_thread->set_thread_id(thread_id_counter++);
+    threads.push_back(new_thread);
+}
 
-        UserThreadSharedPointer new_thread = make_shared<UserThread>(
-                UserThread(number_of_time_slots, thread_library->get_thread_id()));   
-        
-        thread_library->increment_thread_id();
-        
-        threads.push_back(new_thread);
-    }
+uint Process::get_number_of_threads()
+{
+    return threads.size();
+}
+
+vector<Thread*> Process::get_threads()
+{
+    return threads;
+}
+
+unsigned int Process::get_process_id()
+{
+    return process_id;
+}
+
+void Process::set_process_id(unsigned int _process_id)
+{
+    process_id = _process_id;
 }
 
 void Process::print_process()
 {
     for (uint i = 0; i < threads.size(); ++i)
-        threads[i]->print_thread_state();
+        threads[i]->print_thread_stat();
     cout << endl;
 }
+

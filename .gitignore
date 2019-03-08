@@ -284,4 +284,5 @@ TSWLatexianTemp*
 *.sta
 
 .vscode
+.DS_store
 

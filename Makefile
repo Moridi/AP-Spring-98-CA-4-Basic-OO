@@ -2,56 +2,67 @@ CC = g++
 BUILD_DIR = build
 SRC_DIR = src
 INCLUDE_DIR = include
-INCLUDE = -I$(INCLUDE_DIR)
-CFLAGS = -std=c++11 -Wall -Werror $(INCLUDE)
-EXECUTABLE_FILE = ThreadLibrary.out
+CFLAGS = -std=c++11 -Wall -Werror -I$(INCLUDE_DIR)
+
+EXECUTABLE_FILE = ThreadScheduler.out
 
 OBJECTS = \
-	$(BUILD_DIR)/KernelThread.o\
-	$(BUILD_DIR)/Process.o\
-	$(BUILD_DIR)/ThreadLibrary.o\
-	$(BUILD_DIR)/UserThread.o\
-	$(BUILD_DIR)/Main.o\
+	$(BUILD_DIR)/CommandHandler.o \
+	$(BUILD_DIR)/Core.o \
+	$(BUILD_DIR)/Main.o \
+	$(BUILD_DIR)/Process.o \
+	$(BUILD_DIR)/Thread.o \
+	$(BUILD_DIR)/ThreadScheduler.o \
 
-KernelThread = \
-	$(SRC_DIR)/KernelThread.cpp\
-	$(INCLUDE_DIR)/KernelThread.h\
-	$(INCLUDE_DIR)/KernelThread-inl.h\
+CommandHandlerSensitivityList = \
+	$(SRC_DIR)/CommandHandler.cpp \
 
-Process = \
-	$(SRC_DIR)/Process.cpp\
-	$(INCLUDE_DIR)/Process.h\
-	$(INCLUDE_DIR)/Process-inl.h\
+CoreSensitivityList = \
+	$(SRC_DIR)/Core.cpp \
+	$(INCLUDE_DIR)/Core.h \
+	$(INCLUDE_DIR)/Thread.h \
 
-ThreadLibrary = \
-	$(SRC_DIR)/ThreadLibrary.cpp\
-	$(INCLUDE_DIR)/ThreadLibrary.h\
-	$(INCLUDE_DIR)/ThreadLibrary-inl.h\
+ProcessSensitivityList = \
+	$(SRC_DIR)/Process.cpp \
+	$(INCLUDE_DIR)/Process.h \
+	$(INCLUDE_DIR)/Thread.h \
+	$(INCLUDE_DIR)/ThreadScheduler.h \
+	$(INCLUDE_DIR)/Core.h
 
-UserThread = \
-	$(SRC_DIR)/UserThread.cpp\
-	$(INCLUDE_DIR)/UserThread.h\
-	$(INCLUDE_DIR)/UserThread-inl.h\
+ThreadSchedulerSensitivityList = \
+	$(SRC_DIR)/ThreadScheduler.cpp\
+	$(INCLUDE_DIR)/ThreadScheduler.h \
+	$(INCLUDE_DIR)/Process.h \
+	$(INCLUDE_DIR)/Thread.h \
+	$(INCLUDE_DIR)/Core.h
 
-Main = \
-	$(SRC_DIR)/Main.cpp\
+ThreadSensitivityList = \
+	$(SRC_DIR)/Thread.cpp \
+	$(INCLUDE_DIR)/Thread.h
+
+MainSensitivityList = \
+	$(SRC_DIR)/Main.cpp \
+	$(INCLUDE_DIR)/CommandHandler.h
 
 all: $(BUILD_DIR) $(EXECUTABLE_FILE)
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
-$(BUILD_DIR)/KernelThread.o: $(KernelThread)
-	$(CC) $(CFLAGS) -c $(SRC_DIR)/KernelThread.cpp -o $(BUILD_DIR)/KernelThread.o
+$(BUILD_DIR)/CommandHandler.o: $(Main)
+	$(CC) $(CFLAGS) -c $(SRC_DIR)/CommandHandler.cpp -o $(BUILD_DIR)/CommandHandler.o
+
+$(BUILD_DIR)/Core.o: $(Core)
+	$(CC) $(CFLAGS) -c $(SRC_DIR)/Core.cpp -o $(BUILD_DIR)/Core.o
 
 $(BUILD_DIR)/Process.o: $(Process)
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/Process.cpp -o $(BUILD_DIR)/Process.o
 
-$(BUILD_DIR)/ThreadLibrary.o: $(ThreadLibrary)
-	$(CC) $(CFLAGS) -c $(SRC_DIR)/ThreadLibrary.cpp -o $(BUILD_DIR)/ThreadLibrary.o
+$(BUILD_DIR)/ThreadScheduler.o: $(ThreadScheduler)
+	$(CC) $(CFLAGS) -c $(SRC_DIR)/ThreadScheduler.cpp -o $(BUILD_DIR)/ThreadScheduler.o
 
-$(BUILD_DIR)/UserThread.o: $(UserThread)
-	$(CC) $(CFLAGS) -c $(SRC_DIR)/UserThread.cpp -o $(BUILD_DIR)/UserThread.o
+$(BUILD_DIR)/Thread.o: $(Thread)
+	$(CC) $(CFLAGS) -c $(SRC_DIR)/Thread.cpp -o $(BUILD_DIR)/Thread.o
 
 $(BUILD_DIR)/Main.o: $(Main)
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/Main.cpp -o $(BUILD_DIR)/Main.o
