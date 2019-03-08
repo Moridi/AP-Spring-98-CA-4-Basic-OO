@@ -10,8 +10,9 @@ Process ID : <pid> -  Thread ID  : <tid>
 .
 .
 .
-.
-.
 Time Slice : n
 Core number : <core_num>
 Process ID : <pid> -  Thread ID  : <tid>
+.
+.
+.

@@ -2,11 +2,3 @@ Core number : <core_num>
 (for each thread in the queue)
 Process ID : <pid> -  Thread ID  : <tid>
 Number of time slots : <number_of_remaining_time_slots>
-Core number : 1
-Process ID : 4 - Thread ID  : 2
-Number of time slots : 3
-Process ID : 3 - Thread ID  : 2
-Number of time slots : 1
-Core number : 2
-Process ID : 3 - Thread ID  : 1
-Number of time slots : 1
