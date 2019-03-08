@@ -1,18 +1,18 @@
 Time Slice : 1
 Core number : <core_num>
-Process ID : <pid> -  Thread ID  : <tid>
+Process ID : <pid> - Thread ID : <tid>
 .
 .
 .
 Time Slice : 2
 Core number : <core_num>
-Process ID : <pid> -  Thread ID  : <tid>
+Process ID : <pid> - Thread ID : <tid>
 .
 .
 .
 Time Slice : n
 Core number : <core_num>
-Process ID : <pid> -  Thread ID  : <tid>
+Process ID : <pid> - Thread ID : <tid>
 .
 .
 .
