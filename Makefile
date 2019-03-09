@@ -4,7 +4,7 @@ SRC_DIR = src
 INCLUDE_DIR = include
 CFLAGS = -std=c++11 -Wall -Werror -I$(INCLUDE_DIR)
 
-EXECUTABLE_FILE = ThreadScheduler.out
+EXECUTABLE_FILE = Scheduler.out
 
 OBJECTS = \
 	$(BUILD_DIR)/CommandHandler.o \
