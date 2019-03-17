@@ -1,15 +1,13 @@
 #include "ThreadScheduler.h"
 
 #include <iostream>
-// #include <string>
-// #include <vector>
-// #include <limits>
 
 using namespace std;
 
 constexpr unsigned int FIRST_ID = 1;
 
 ThreadScheduler* ThreadScheduler::instance;
+
 ThreadScheduler::ThreadScheduler()
 : next_process_id(FIRST_ID)
 , next_core_id(FIRST_ID)

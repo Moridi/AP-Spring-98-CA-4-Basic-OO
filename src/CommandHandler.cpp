@@ -9,9 +9,21 @@
 
 using namespace std;
 
+CommandHandler* CommandHandler::instance;
+
+CommandHandler::CommandHandler()
+{
+}
+
+CommandHandler* CommandHandler::get_instance()
+{
+	if (instance == nullptr)
+		instance = new CommandHandler();
+	return instance;
+}
+
 void CommandHandler::run()
 {
-
     ThreadScheduler* thread_scheduler = ThreadScheduler::get_instance();
 
     constexpr char ADD_PROCESS[] = "add_process";
