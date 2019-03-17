@@ -2,10 +2,9 @@
 
 #include <iostream>
 
-#include <Thread.h>
+#include "Thread.h"
 
 using namespace std;
-
 
 Core::Core(uint _core_id)
 : core_id(_core_id)

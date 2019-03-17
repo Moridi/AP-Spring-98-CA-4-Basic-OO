@@ -4,8 +4,8 @@
 #include <memory>
 #include <vector>
 
-#include "Process.h"
-#include "Core.h"
+class Process;
+class Core;
 
 class ThreadScheduler
 {    

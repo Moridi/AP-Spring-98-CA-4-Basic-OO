@@ -2,6 +2,9 @@
 
 #include <iostream>
 
+#include "Core.h"
+#include "Process.h"
+
 using namespace std;
 
 constexpr unsigned int FIRST_ID = 1;

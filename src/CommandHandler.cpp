@@ -6,6 +6,8 @@
 #include <string>
 
 #include "ThreadScheduler.h"
+#include "Thread.h"
+#include "Process.h"
 
 using namespace std;
 

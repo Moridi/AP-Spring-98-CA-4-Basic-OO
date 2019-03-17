@@ -49,22 +49,22 @@ all: $(BUILD_DIR) $(EXECUTABLE_FILE)
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
-$(BUILD_DIR)/CommandHandler.o: $(Main)
+$(BUILD_DIR)/CommandHandler.o: $(CommandHandlerSensitivityList)
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/CommandHandler.cpp -o $(BUILD_DIR)/CommandHandler.o
 
-$(BUILD_DIR)/Core.o: $(Core)
+$(BUILD_DIR)/Core.o: $(CoreSensitivityList)
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/Core.cpp -o $(BUILD_DIR)/Core.o
 
-$(BUILD_DIR)/Process.o: $(Process)
+$(BUILD_DIR)/Process.o: $(ProcessSensitivityList)
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/Process.cpp -o $(BUILD_DIR)/Process.o
 
-$(BUILD_DIR)/ThreadScheduler.o: $(ThreadScheduler)
+$(BUILD_DIR)/ThreadScheduler.o: $(ThreadSchedulerSensitivityList)
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/ThreadScheduler.cpp -o $(BUILD_DIR)/ThreadScheduler.o
 
-$(BUILD_DIR)/Thread.o: $(Thread)
+$(BUILD_DIR)/Thread.o: $(ThreadSensitivityList)
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/Thread.cpp -o $(BUILD_DIR)/Thread.o
 
-$(BUILD_DIR)/Main.o: $(Main)
+$(BUILD_DIR)/Main.o: $(MainSensitivityList)
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/Main.cpp -o $(BUILD_DIR)/Main.o
 
 $(EXECUTABLE_FILE): $(OBJECTS)

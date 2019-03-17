@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-#include <Process.h>
+class Process;
 
 class CommandHandler
 {
@@ -14,13 +14,12 @@ public:
 
 private:
     typedef std::vector<std::string> StringList;
-
+    
     CommandHandler();
-
-    static CommandHandler* instance;
-
     Process* create_process(std::string input_line);
     StringList split_string(std::string input);
+
+    static CommandHandler* instance;
 };
 
 #endif

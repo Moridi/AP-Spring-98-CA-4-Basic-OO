@@ -3,8 +3,6 @@
 
 #include <vector>
 
-#include "Thread.h"
-
 class Thread;
 
 class Process
