@@ -55,7 +55,8 @@ void ThreadScheduler::add_core()
 	cores.push_back(new_core);
 	increment_next_core_id();
 	
-	cout << "Core with core ID = " << new_core->get_core_id() << " successfully added!" << endl;
+	cout << "Core with core ID = " << new_core->get_core_id() <<
+			" successfully added!" << endl;
 }
 
 void ThreadScheduler::finish_tasks()
@@ -74,12 +75,13 @@ void ThreadScheduler::add_process(Process* new_process)
 	new_process->set_process_id(next_process_id);
 	increment_next_process_id();
 
-	for(Thread* thread: new_process->get_threads())
+	for(Thread* thread : new_process->get_threads())
 		get_pricewit_core_index()->add_to_queue(thread);
 
 	processes.push_back(new_process);
 
-	cout << "Process with pid = " << new_process->get_process_id() << " added!" << endl;
+	cout << "Process with pid = " << new_process->get_process_id() <<
+			" added!" << endl;
 }
 
 Core* ThreadScheduler::get_pricewit_core_index()

@@ -2,13 +2,12 @@
 
 #include <iostream>
 
-#include <Process.h>
+#include "Process.h"
 
 using namespace std;
 
 Thread::Thread(int _number_of_time_slots, Process* _process)
 : number_of_time_slots(_number_of_time_slots)
-, thread_id(-1)
 , process(_process)
 {
 }

@@ -7,21 +7,17 @@
 
 using namespace std;
 
-constexpr unsigned int FIRST_ID = 1;
-
 Process::Process()
-: process_id(FIRST_ID)
-, thread_id_counter(FIRST_ID)
 {
 }
 
 void Process::add_thread(Thread* new_thread)
 {
-    new_thread->set_thread_id(thread_id_counter++);
     threads.push_back(new_thread);
+    new_thread->set_thread_id(threads.size());
 }
 
-uint Process::get_number_of_threads()
+unsigned int Process::get_number_of_threads()
 {
     return threads.size();
 }
@@ -43,7 +39,9 @@ void Process::set_process_id(unsigned int _process_id)
 
 void Process::print_process()
 {
-    for (uint i = 0; i < threads.size(); ++i)
+    constexpr uint8_t FIRST_INDEX = 0;
+
+    for (unsigned int i = FIRST_INDEX; i < threads.size(); ++i)
         threads[i]->print_thread_stat();
     cout << endl;
 }

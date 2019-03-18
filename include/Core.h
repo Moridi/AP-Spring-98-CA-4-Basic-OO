@@ -17,6 +17,8 @@ public:
     void print_core_stat();
     
     void run_thread();
+    void run_first_thread();
+    void amend_core_queue();
 
 private:
     std::vector<Thread*> waiting_queue;

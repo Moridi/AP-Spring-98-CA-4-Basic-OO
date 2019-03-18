@@ -23,7 +23,6 @@ public:
 private:
     std::vector<Thread*> threads;
     unsigned int process_id;
-    unsigned int thread_id_counter;
 };
 
 #endif
