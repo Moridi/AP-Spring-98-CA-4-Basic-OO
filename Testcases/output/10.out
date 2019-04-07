@@ -1,0 +1,30 @@
+Core with core ID = 1 successfully added!
+Core with core ID = 2 successfully added!
+Process with pid = 1 added!
+Core number : 1
+Process ID : 1 - Thread ID : 1
+Core number : 2
+Process ID : 1 - Thread ID : 2
+Core with core ID = 3 successfully added!
+Process with pid = 2 added!
+Core number : 1
+Process ID : 1 - Thread ID : 3
+Core number : 2
+Process ID : 2 - Thread ID : 1
+Core number : 3
+Process ID : 2 - Thread ID : 2
+Process with pid = 3 added!
+Core number : 1
+Process ID : 3 - Thread ID : 1
+Core number : 2
+Process ID : 3 - Thread ID : 2
+Core number : 3
+Process ID : 2 - Thread ID : 2
+Core number : 1
+Core number : 2
+Core number : 3
+Process ID : 2 - Thread ID : 2
+Number of time slots : 1
+Time Slice : 1
+Core number : 3
+Process ID : 2 - Thread ID : 2
